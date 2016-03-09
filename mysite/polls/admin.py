@@ -3,8 +3,10 @@ from django.contrib import admin
 from .models import Question, Choice
 
 class QuestionModelAdmin(admin.ModelAdmin):	
-	class Meta:
-		model = Question
+	fieldsets = [
+		(None,               {'fields': ['question_text']}),
+		('Date information', {'fields': ['pub_date']}),
+    ]
 
 class ChoiceModelAdmin(admin.ModelAdmin):	
 	class Meta:
